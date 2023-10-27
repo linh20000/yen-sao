@@ -2,12 +2,7 @@
 
 @section('content')
     @include('frontend.components.breadcrumb', ['name' => 'Tất cả sản phẩm'])
-
-
-
     @include('frontend.product.list')
-    
-
 @endsection
 
 @section('scripts')
@@ -34,7 +29,7 @@
             let prices = []
             $('input[name="prices"]:checked').each(function() {
                 prices.push($(this).val());
-    
+
             });
             $.ajax({
                 url:`{{route('loc')}}`,

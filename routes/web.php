@@ -35,10 +35,12 @@ Route::get('thong-tin-tai-khoan', [AuthController::class, 'profile'])->name('pro
 Route::get('thong-tin-tai-khoan/dia-chi', [AuthController::class, 'profileAddress'])->name('profileAddress');
 
 
-Route::get('/san-pham',[HomeController::class, 'showAllProduct'])->name('ProductList'); 
-Route::get('/san-pham-{name}',[HomeController::class, 'showAllProductWith'])->name('showAllProductWith'); 
+Route::get('/san-pham',[HomeController::class, 'showAllProduct'])->name('ProductList');
+Route::get('/san-pham-{name}',[HomeController::class, 'showAllProductWith'])->name('showAllProductWith');
 Route::get('/san-pham/{id}-{slug}', [HomeController::class, 'productDetail'])->name('productDetail');
 
+Route::get('/blog',[HomeController::class, 'showAllBlog'])->name('BlogList');
+Route::get('/blog/{id}-{slug}', [HomeController::class, 'blogDetail'])->name('blogDetail');
 
 Route::post('/them', [AddCartController::class, 'addCartajax'])->name('addCartajax');
 Route::post('/them-san-pham', [AddCartController::class, 'addcart'])->name('addcart');
@@ -53,18 +55,16 @@ Route::post('/thanh-toan',[AddCartController::class , 'sendOrder'])->name('sendR
 
 Route::get('/gioi-thieu',[HomeController::class, 'aboutUs'])->name('about-us');
 
-Route::get('/lien-he',[HomeController::class, 'Contact'])->name('Contact'); 
-Route::post('/lien-he',[HomeController::class, 'addContact'])->name('addContact'); 
+Route::get('/lien-he',[HomeController::class, 'Contact'])->name('Contact');
+Route::post('/lien-he',[HomeController::class, 'addContact'])->name('addContact');
 
 Route::get('/tin-tuc',[HomeController::class, 'blog'])->name('blog');
 Route::get('/tin-tuc/{id}-{slug}',[HomeController::class, 'blog_details'])->name('blog_details');
 
 Route::post('',[HomeController::class , 'sendEmail'])->name('sendEmail');
 
-Route::get('/sanpham/tim-kiem',[HomeController::class, 'search'])->name('search'); 
+Route::get('/sanpham/tim-kiem',[HomeController::class, 'search'])->name('search');
 Route::get('/san-pham/loc',[HomeController::class, 'filterAjax'])->name('loc');
-
-
 
 
 
@@ -73,7 +73,7 @@ Route::get('/san-pham/loc',[HomeController::class, 'filterAjax'])->name('loc');
 
 Route::get('admin/login', [LoginController::class, 'showLogin'])->name('admin.showlogin');
 Route::get('admin', [LoginController::class, 'showLogin'])->name('admin.showlogin');
-// đăng nhập 
+// đăng nhập
 Route::post('admin/login', [LoginController::class, 'login'])->name('admin.login');
 // Đăng xuất trang quản lí
 Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
@@ -81,7 +81,7 @@ Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.log
 Route::prefix('admin')->middleware('auth')->group(function() {
     Route::get('/', [LoginController::class, 'showHome'])->name('admin.home');
 
-    // Danh mục 
+    // Danh mục
     Route::prefix('category')->group(function () {
         // hiển thị danh sách danh mục
         Route::get('/', [CategoryController::class, 'listCategory'])->name('admin.category');
@@ -99,15 +99,15 @@ Route::prefix('admin')->middleware('auth')->group(function() {
 
     //Banner
     Route::prefix('banner')->group(function () {
-        // hiển thị danh sách 
+        // hiển thị danh sách
         Route::get('/', [BannerController::class, 'view_Banner'])->name('admin.Banner');
-        // thêm 
+        // thêm
         Route::get('create', [BannerController::class, 'createBanner'])->name('banner.create');
         Route::post('create', [BannerController::class, 'post'])->name('banner.postCreate');
-        // chỉnh sửa 
+        // chỉnh sửa
         Route::get('update-{id}', [BannerController::class, 'get_update_Banner'])->name('banner.getUpdate');
         Route::post('update-{id}', [BannerController::class, 'update_Banner'])->name('banner.postUpdate');
-        // xóa 
+        // xóa
         Route::get('delete-{id}', [BannerController::class, 'deleteBanner'])->name('admin.deleteBanner');
     });
 
@@ -152,15 +152,15 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     });
 
     Route::prefix('trademark')->group(function () {
-        // hiển thị danh sách 
+        // hiển thị danh sách
         Route::get('/', [TrademarkController::class, 'view_Trademark'])->name('admin.Trademark');
-        // thêm 
+        // thêm
         Route::get('create', [TrademarkController::class, 'createTrademark'])->name('trademark.create');
         Route::post('create', [TrademarkController::class, 'post']);
-        // chỉnh sửa 
+        // chỉnh sửa
         Route::get('update-{id}', [TrademarkController::class, 'get_update_Trademark'])->name('trademark.getUpdate');
         Route::post('update-{id}', [TrademarkController::class, 'update_Trademark'])->name('trademark.postUpdate');
-        // xóa 
+        // xóa
         Route::get('delete-{id}', [TrademarkController::class, 'deleteTrademark'])->name('admin.deleteTrademark');
     });
 

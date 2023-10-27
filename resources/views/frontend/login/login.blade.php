@@ -72,9 +72,6 @@
 
                         </div>
 
-
-
-
                         <div class="form-signup clearfix">
                             <fieldset class="form-group">
                                 <label>Email: </label>

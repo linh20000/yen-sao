@@ -16,10 +16,10 @@
                             @foreach ($blog as $item)
                                 <div class="blog_index">
                                     <div class="myblog"
-                                        onclick="window.location.href='/blogs/news/rau-xanh-tang-gia-manh-vi-troi-mua-nguoi-dan-noi-thanh-lao-dao';">
+                                        onclick="window.location.href=`/blogs/news/{{$item->name}}`;">
                                         <div class="image-blog-left a-center">
                                             <a class="image-blog"
-                                                href="/blogs/news/rau-xanh-tang-gia-manh-vi-troi-mua-nguoi-dan-noi-thanh-lao-dao"
+                                                href="{{route('blog', [$item->id, Str::slug($item->name)])}}"
                                                 title="{{ $item->subname }}">
                                                 <img class="lazyload" src="{{ asset($item->image) }}"
                                                     data-src="{{ asset($item->image) }}" alt="{{ $item->subname }}" />
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            
+
                         </div>
                     </div>
                 </div>

@@ -54,7 +54,7 @@
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
                         <a class="brand-logo" href="">
-                            <h2 class="brand-text text-primary ms-1">Cool-Organic</h2>
+                            <h2 class="brand-text text-primary ms-1">Yến sào gia lộc</h2>
                         </a>
 
                         <!-- Left Text-->
@@ -65,8 +65,8 @@
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1">Welcome to admin! 👋</h2>
-                                <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
+                                <h2 class="card-title fw-bold mb-1">Chào mừng đến với quản trị viên! 👋</h2>
+                                <p class="card-text mb-2">Vui lòng đăng nhập vào tài khoản của bạn</p>
                                 @if(session()->has('message'))
                                     <p class="text-red-400 text-[12px]" style="color: red;">{{session()->get('message')}}</p>
                                 @endif
@@ -87,12 +87,12 @@
                                     <div class="mb-1">
                                         <div class="form-check">
                                             <input class="form-check-input" id="remember-me" type="checkbox" tabindex="3" />
-                                            <label class="form-check-label" for="remember-me"> Remember Me</label>
+                                            <label class="form-check-label" for="remember-me"> Nhớ tài khoản</label>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
+                                    <button class="btn btn-primary w-100" tabindex="4">Đăng nhập</button>
                                 </form>
-                                
+
                             </div>
                         </div>
                         <!-- /Login-->
